@@ -3,6 +3,7 @@ import moment from 'moment';
 import Invoices from "./components/Invoices";
 import TableHeader from './components/TableHeader';
 import Pagination from './components/Pagination';
+import FilterModal from './components/FilterModal';
 
 function App() {
   const [ invoices, setInvoices ] = useState([]);
@@ -40,10 +41,13 @@ function App() {
   // Get Current invoices
   const currentInvoices = invoices.slice((currentPage-1) * invoicesPerPage, currentPage * invoicesPerPage);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // const applyFilter = () => setCurrentPage(1);
 
   return (
     <div className="container mt-3">
-        <h1 className="text-primary mb-3">Invoice Details</h1>
+        <h1 className="text-primary mb-3">Invoice Details 
+            <FilterModal />
+        </h1>
         <table className="table table-striped table-bordered text-center">
           <TableHeader />
           <tbody>
