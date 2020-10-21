@@ -10,6 +10,12 @@ const customStyles = {
       bottom                : 'auto',
       marginRight           : '-50%',
       transform             : 'translate(-50%, -50%)'
+    },
+    close: {
+        fontSize            : '12px',
+        position            : 'absolute',
+        top                 : '12px',
+        right               : '12px'
     }
   };
 
@@ -40,17 +46,32 @@ const FilterModal = () => {
                     onAfterOpen={afterOpenModal}
                     onRequestClose={closeModal}
                     style={customStyles}
-                    contentLabel="Example Modal"
+                    contentLabel="Filter Invoices"
                     >
-                          <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
-                        <button onClick={closeModal}>close</button>
-                        <div>I am a modal</div>
+                        <button onClick={closeModal} className="btn btn-sm btn-dark fa fa-times" style={customStyles.close}></button>
+                        <h2 ref={_subtitle => (subtitle = _subtitle)}>Filter Invoices</h2>
                         <form>
-                            <input />
-                            <button>tab navigation</button>
-                            <button>stays</button>
-                            <button>inside</button>
-                            <button>the modal</button>
+                            <div className="form-group m-0">
+                                <label className="m-0">Name:</label>
+                                <input type="text" className="form-control p-0" style={{height: '2em'}} />
+                            </div>
+                            <div className="form-group m-0">
+                                <label className="m-0">Amount:</label>
+                                <div className="form-row">
+                                    <input type="number" className="col-6 form-control p-0" style={{height: '2em'}} />
+                                    <input type="number" className="col-6 form-control p-0" style={{height: '2em'}} />
+                                </div>
+                            </div>
+                            <div className="form-group m-0">
+                                <label className="m-0">Date:</label>
+                                <div className="form-row">
+                                    <input type="date" className="col-6 form-control p-0" style={{height: '2em'}} />
+                                    <input type="date" className="col-6 form-control p-0" style={{height: '2em'}} />
+                                </div>
+                            </div>
+                            <div className="m-3">
+                                <button className="btn btn-sm btn-success float-right">Apply</button>
+                            </div>
                         </form>
                 </Modal>
             </small>

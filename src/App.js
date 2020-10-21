@@ -7,6 +7,7 @@ import FilterModal from './components/FilterModal';
 
 function App() {
   const [ invoices, setInvoices ] = useState([]);
+  const [ filteredInvoices, setFilteredInvoices ] = useState([]);
   const [ currentPage, setCurrentPage ] = useState(1);
   const [ invoicesPerPage ] = useState(15);
 
