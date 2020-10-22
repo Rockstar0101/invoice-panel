@@ -1,6 +1,9 @@
 import React from 'react'
 
 const Invoices = ({ invoices }) => {
+    if (!invoices.length) {
+        return (<tr><td colSpan="4">No data Available to show</td></tr>)
+    }
     return (
         <>
             {invoices.map(invoice => (
